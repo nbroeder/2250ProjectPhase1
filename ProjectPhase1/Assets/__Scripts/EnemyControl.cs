@@ -7,8 +7,10 @@ public class EnemyControl : MonoBehaviour
     [Header("Set in Inspector: Enemy")]
     public float speed = 1f; //variable representing the speed
     public bool change = false;
-    public float wait = 5;
     public float timing;
+    public int health = 200;
+
+    public GameObject hero;
     
     public Vector3 pos
     {
@@ -47,6 +49,11 @@ public class EnemyControl : MonoBehaviour
         {
             MovePositive();
         }
+
+        if (health == 0)
+        {
+            Destroy(hero);
+        }
     }
 
     public virtual void MoveNegative()
@@ -62,8 +69,22 @@ public class EnemyControl : MonoBehaviour
         pos = tempPos;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision");
+        if (collision.gameObject.tag == "Sword")
+        {
+            Destroy(this.gameObject);
+        }
+        if (collision.gameObject.tag == "Danger")
+        {
+            health -=1;
+        }
     }
-}
+
+    private IEnumerator WaitSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+
+        }
+    }

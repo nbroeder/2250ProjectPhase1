@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControlHorizontal : EnemyControl
+public class EnemyHorizontal : EnemyControl
 {
-
     public override void MoveNegative()
     {
         Vector3 tempPos = pos;
@@ -18,3 +17,4 @@ public class EnemyControlHorizontal : EnemyControl
         pos = tempPos;
     }
 }
+

@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2860354587461215909}
   m_Layer: 0
   m_Name: idle_up
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
