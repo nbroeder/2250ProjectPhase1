@@ -61,4 +61,9 @@ public class EnemyControl : MonoBehaviour
         tempPos.y += speed * Time.deltaTime;
         pos = tempPos;
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision");
+    }
 }

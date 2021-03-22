@@ -26354,6 +26354,7 @@ GameObject:
   - component: {fileID: 972388464}
   - component: {fileID: 972388463}
   - component: {fileID: 972388465}
+  - component: {fileID: 972388466}
   m_Layer: 0
   m_Name: 'npc_8 '
   m_TagString: Untagged
@@ -26441,6 +26442,27 @@ MonoBehaviour:
   change: 0
   wait: 5
   timing: 0
+--- !u!50 &972388466
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972388462}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &973127889
 GameObject:
   m_ObjectHideFlags: 0
@@ -27586,6 +27608,7 @@ GameObject:
   - component: {fileID: 1020818406}
   - component: {fileID: 1020818405}
   - component: {fileID: 1020818407}
+  - component: {fileID: 1020818408}
   m_Layer: 0
   m_Name: npc_5
   m_TagString: Untagged
@@ -27673,6 +27696,27 @@ MonoBehaviour:
   change: 0
   wait: 5
   timing: 0
+--- !u!50 &1020818408
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020818404}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1026021187
 GameObject:
   m_ObjectHideFlags: 0
@@ -57305,6 +57349,8 @@ GameObject:
   - component: {fileID: 2139165669}
   - component: {fileID: 2139165668}
   - component: {fileID: 2139165670}
+  - component: {fileID: 2139165671}
+  - component: {fileID: 2139165672}
   m_Layer: 0
   m_Name: npc_0
   m_TagString: Untagged
@@ -57392,6 +57438,53 @@ MonoBehaviour:
   change: 0
   wait: 5
   timing: 0
+--- !u!61 &2139165671
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139165667}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &2139165672
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139165667}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2141907047
 GameObject:
   m_ObjectHideFlags: 0
@@ -57565,6 +57658,7 @@ GameObject:
   - component: {fileID: 2146364383}
   - component: {fileID: 2146364382}
   - component: {fileID: 2146364384}
+  - component: {fileID: 2146364385}
   m_Layer: 0
   m_Name: npc_9
   m_TagString: Untagged
@@ -57652,6 +57746,27 @@ MonoBehaviour:
   change: 0
   wait: 5
   timing: 0
+--- !u!50 &2146364385
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146364381}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2146909436
 GameObject:
   m_ObjectHideFlags: 0
