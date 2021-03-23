@@ -7,6 +7,7 @@ TagManager:
   - NotHero
   - Sword
   - Danger
+  - SpaceStation
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,8 @@ public class HeroController : MonoBehaviour
 
     public static HeroController Instance { get { return _instance; } }//Main character singleton property.
 
+    public GameObject spaceStation;//the part of the station that the player is looking for
+
     private void Awake()
     {
         //Creating singleton instance.
@@ -84,6 +86,10 @@ public class HeroController : MonoBehaviour
         if (Input.GetKeyDown("q"))
         {
             OnShootRifle();
+        }
+        if (Input.GetKeyDown("e"))
+        {
+            useScanner();
         }
 
         //Update last frame position.
@@ -252,6 +258,46 @@ public class HeroController : MonoBehaviour
             else//If running right
                 runSide.SetActive(true);
         }
+    }
+
+    //use the scanner to tell the player which direction the space station is
+    void useScanner()
+    {
+        Vector2 spaceStationPos=spaceStation.transform.position;
+        Vector2 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+        float y = playerPos.y - spaceStationPos.y;
+        float x = playerPos.x - spaceStationPos.x;
+
+        //determine if the distance is further in the x or y direction
+        if (Mathf.Abs(y) >= Mathf.Abs(x))
+        {
+            //tell the player which way to go
+            if (y > 0)
+            {
+               
+                Debug.Log("go down");
+            }
+            else
+            {
+                
+                Debug.Log("go up");
+            }
+        }
+        else
+        {
+            if (x > 0)
+            {
+                
+                Debug.Log("go left");
+            }
+            else
+            {
+                
+                Debug.Log("go right");
+            }
+        }
+
     }
 
     //Sets all animation gameobjects to invisible.
