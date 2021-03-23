@@ -75,7 +75,7 @@ public class HeroController : MonoBehaviour
             UpdateMovement(heading);//Update animation.
 
         //Trying to swing sword
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("e"))
         {
             OnSwingSword();
         }
