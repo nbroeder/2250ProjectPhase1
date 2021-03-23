@@ -77,7 +77,7 @@ public class HeroController : MonoBehaviour
             UpdateMovement(heading);//Update animation.
 
         //Trying to swing sword
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("space"))
         {
             OnSwingSword();
         }
@@ -263,8 +263,8 @@ public class HeroController : MonoBehaviour
     //use the scanner to tell the player which direction the space station is
     void useScanner()
     {
-        Vector2 spaceStationPos=spaceStation.transform.position;
-        Vector2 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        Vector2 spaceStationPos= spaceStation.transform.position;
+        Vector2 playerPos = transform.position;
 
         float y = playerPos.y - spaceStationPos.y;
         float x = playerPos.x - spaceStationPos.x;
