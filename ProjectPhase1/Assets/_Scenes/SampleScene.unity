@@ -17328,7 +17328,7 @@ Canvas:
   m_GameObject: {fileID: 593622980}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -26656,7 +26656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: 423}
+  m_AnchoredPosition: {x: 160, y: 250}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &953235067
@@ -41180,6 +41180,8 @@ MonoBehaviour:
     type: 3}
   crawlUp: {fileID: 3797694123077564273, guid: 7948577c78fe34fbcaf4be2f8b9a51a5, type: 3}
   crawlSide: {fileID: 2890237993365841750, guid: 558c2bff71bc74410854603ddca1172d,
+    type: 3}
+  rifleBullet: {fileID: 4123455240676836541, guid: 9af5ff4bb4fb74d1489931b9860fb64b,
     type: 3}
   spaceStation: {fileID: 1125837958}
   scannerText: {fileID: 2052237353}
@@ -55719,7 +55721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 423}
+  m_AnchoredPosition: {x: 0, y: 250}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052237353

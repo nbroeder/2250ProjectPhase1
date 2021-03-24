@@ -15,7 +15,6 @@ public class HeroController : MonoBehaviour
     public float moveSpeed = 10f;//Movement speed.
     public GameObject idleDown, idleSide, idleUp, runDown, runSide, runUp, swordDown, swordSide, swordUp,
         rifleUp, rifleDown, rifleSide, crawlDown, crawlUp, crawlSide;//Action animations
-    public GameObject rifleBullet;//Bullet
 
     public static HeroController Instance { get { return _instance; } }//Main character singleton property.
 
@@ -210,10 +209,6 @@ public class HeroController : MonoBehaviour
 
             ClearGameObjects();
             rifleUp.SetActive(true);
-
-            rifleBullet = Instantiate(rifleBullet) as GameObject;
-
-            rifleBullet.transform.Rotate(0, 90, 0);
 
             StartCoroutine(WaitSeconds(0.50f, activeGO));
         }
