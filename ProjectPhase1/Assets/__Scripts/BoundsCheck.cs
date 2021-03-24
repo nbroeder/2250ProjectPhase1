@@ -8,7 +8,8 @@ public class BoundsCheck : MonoBehaviour //class to keep hero within the world m
     // Update is called once per frame
     void Update()
     {
-      //clamp the hero's dimensions to the x,y and z boundaries of the map
-     transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9f, 26f), Mathf.Clamp(transform.position.y, -14.4f, 1.2f), transform.position.z);
+        if (transform != null)
+            //clamp the hero's dimensions to the x,y and z boundaries of the map
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9f, 26f), Mathf.Clamp(transform.position.y, -14.4f, 1.2f), transform.position.z);
     }
 }

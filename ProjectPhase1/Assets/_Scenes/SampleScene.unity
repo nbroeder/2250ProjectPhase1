@@ -22384,11 +22384,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: satellite body
       objectReference: {fileID: 0}
-    - target: {fileID: 3909317105904304604, guid: 8ada29ac4d360cd47ab16311663642e0,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ada29ac4d360cd47ab16311663642e0, type: 3}
 --- !u!1 &771700534
@@ -35428,6 +35423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802786185116419173, guid: b7c04f6294e58754a87201bf705afc28,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7c04f6294e58754a87201bf705afc28, type: 3}
