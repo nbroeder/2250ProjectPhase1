@@ -6,8 +6,9 @@ public class HeroController : MonoBehaviour
 {
     private static HeroController _instance;//Main character singleton
     private Vector3 _lastHeading;//Last movement position
+    private Rigidbody2D _rigidbody;
 
-    public float moveSpeed = 3f;//Movement speed.
+    public float moveSpeed = 10f;//Movement speed.
     public GameObject idleDown, idleSide, idleUp, runDown, runSide, runUp, swordDown, swordSide, swordUp,
         rifleUp, rifleDown, rifleSide;//Action animations
 
@@ -30,6 +31,9 @@ public class HeroController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.gravity = Vector2.zero;
+        _rigidbody = GetComponent<Rigidbody2D>();
+
         //Create all possible animation gameobjects.
         idleDown = Instantiate(idleDown) as GameObject;
         idleSide = Instantiate(idleSide) as GameObject;
@@ -64,17 +68,22 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Calculate horizontal and vertical movement
         Vector3 hMovement = Vector3.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 vMovement = Vector3.up * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
         //Set movement direction
         Vector3 heading = Vector3.Normalize(hMovement + vMovement);
-        //Set position
-        transform.position += hMovement;
-        transform.position += vMovement;
+
+        Vector3 m_input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        //Move hero
+        _rigidbody.MovePosition(transform.position + m_input * Time.deltaTime * moveSpeed);
+
 
         if (_lastHeading != heading)
+        {
             UpdateMovement(heading);//Update animation.
+        }
 
         //Trying to swing sword
         if (Input.GetKeyDown("space"))
