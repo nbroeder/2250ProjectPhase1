@@ -16,7 +16,9 @@ public class HeroController : MonoBehaviour
 
     public GameObject spaceStation;//the part of the station that the player is looking for
 
-    public Text txt;
+    public Text scannerText;
+    public Text coinText;
+    private int coins = 0;
 
     private void Awake()
     {
@@ -279,12 +281,12 @@ public class HeroController : MonoBehaviour
             if (y > 0)
             {
                
-                txt.text="go down";
+                scannerText.text="go down";
             }
             else
             {
 
-                txt.text = "go up";
+                scannerText.text = "go up";
             }
         }
         else
@@ -292,12 +294,12 @@ public class HeroController : MonoBehaviour
             if (x > 0)
             {
 
-                txt.text = "go left";
+                scannerText.text = "go left";
             }
             else
             {
 
-                txt.text = "go right";
+                scannerText.text = "go right";
             }
         }
 
