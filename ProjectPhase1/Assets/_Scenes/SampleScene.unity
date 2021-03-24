@@ -41182,8 +41182,8 @@ MonoBehaviour:
   crawlSide: {fileID: 2890237993365841750, guid: 558c2bff71bc74410854603ddca1172d,
     type: 3}
   spaceStation: {fileID: 1125837958}
-  scannerText: {fileID: 0}
-  coinText: {fileID: 0}
+  scannerText: {fileID: 2052237353}
+  coinText: {fileID: 953235067}
 --- !u!4 &1515691287
 Transform:
   m_ObjectHideFlags: 0
@@ -55754,7 +55754,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &2052237354
 CanvasRenderer:
   m_ObjectHideFlags: 0
