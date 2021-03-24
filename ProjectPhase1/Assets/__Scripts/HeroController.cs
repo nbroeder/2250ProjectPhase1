@@ -7,11 +7,12 @@ public class HeroController : MonoBehaviour
 {
     private static HeroController _instance;//Main character singleton
     private Vector3 _lastHeading;//Last movement position
-    private Rigidbody2D _rigidbody;
+    private Rigidbody2D _rigidbody;//Rigidbody for the hero.
+    private bool _crawling;//Whether the hero is crawling or not.
 
     public float moveSpeed = 10f;//Movement speed.
     public GameObject idleDown, idleSide, idleUp, runDown, runSide, runUp, swordDown, swordSide, swordUp,
-        rifleUp, rifleDown, rifleSide;//Action animations
+        rifleUp, rifleDown, rifleSide, crawlDown, crawlUp, crawlSide;//Action animations
 
     public static HeroController Instance { get { return _instance; } }//Main character singleton property.
 
@@ -52,6 +53,9 @@ public class HeroController : MonoBehaviour
         rifleDown = Instantiate(rifleDown) as GameObject;
         rifleSide = Instantiate(rifleSide) as GameObject;
         rifleUp = Instantiate(rifleUp) as GameObject;
+        crawlDown = Instantiate(crawlDown) as GameObject;
+        crawlSide = Instantiate(crawlSide) as GameObject;
+        crawlUp = Instantiate(crawlUp) as GameObject;
 
         ClearGameObjects();
         idleDown.SetActive(true);
@@ -68,6 +72,9 @@ public class HeroController : MonoBehaviour
         rifleDown.transform.SetParent(gameObject.transform, false);
         rifleUp.transform.SetParent(gameObject.transform, false);
         rifleSide.transform.SetParent(gameObject.transform, false);
+        crawlDown.transform.SetParent(gameObject.transform, false);
+        crawlUp.transform.SetParent(gameObject.transform, false);
+        crawlSide.transform.SetParent(gameObject.transform, false);
     }
 
     // Update is called once per frame
@@ -81,6 +88,11 @@ public class HeroController : MonoBehaviour
         Vector3 heading = Vector3.Normalize(hMovement + vMovement);
 
         Vector3 m_input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        //Make crawling slower
+        if (_crawling)
+            moveSpeed = 1f;
+        else
+            moveSpeed = 10f;
         //Move hero
         _rigidbody.MovePosition(transform.position + m_input * Time.deltaTime * moveSpeed);
 
@@ -95,7 +107,10 @@ public class HeroController : MonoBehaviour
         {
             OnSwingSword();
         }
-
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            _crawling = !_crawling;
+        }
         //Trying to shoot rifle
         if (Input.GetKeyDown("q"))
         {
@@ -259,18 +274,40 @@ public class HeroController : MonoBehaviour
         {
             //Reset x flip incase previous animation was flipped.
             runSide.transform.localScale = new Vector3(1f, runSide.transform.localScale.y, runSide.transform.localScale.z);
+            crawlSide.transform.localScale = new Vector3(1f, crawlSide.transform.localScale.y, crawlSide.transform.localScale.z);
 
-            if (dir.y > 0 && Mathf.Abs(dir.y) > Mathf.Abs(dir.x))//If running up
-                runUp.SetActive(true);
+            if (dir.y > 0 && Mathf.Abs(dir.y) > Mathf.Abs(dir.x))
+            {//If running up
+                if (_crawling)
+                    crawlUp.SetActive(true);
+                else
+                    runUp.SetActive(true);
+            }
             else if (dir.y < 0 && Mathf.Abs(dir.y) > Mathf.Abs(dir.x))//If running down
-                runDown.SetActive(true);
+                if (_crawling)
+                    crawlDown.SetActive(true);
+                else
+                    runDown.SetActive(true);
             else if (dir.x > 0 && Mathf.Abs(dir.y) < Mathf.Abs(dir.x))//If facing left
             {
-                runSide.transform.localScale = new Vector3(-1f, runSide.transform.localScale.y, runSide.transform.localScale.z);
-                runSide.SetActive(true);
+                if (_crawling)
+                {
+                    crawlSide.transform.localScale = new Vector3(-1f, crawlSide.transform.localScale.y, crawlSide.transform.localScale.z);
+                    crawlSide.SetActive(true);
+                }
+                else
+                {
+                    runSide.transform.localScale = new Vector3(-1f, runSide.transform.localScale.y, runSide.transform.localScale.z);
+                    runSide.SetActive(true);
+                }
             }
-            else//If running right
-                runSide.SetActive(true);
+            else//If running left
+            {
+                if (_crawling)
+                    crawlSide.SetActive(true);
+                else
+                    runSide.SetActive(true);
+            }
         }
     }
 
@@ -290,12 +327,16 @@ public class HeroController : MonoBehaviour
             if (y > 0)
             {
                
+
                 scannerText.text="go down";
+
             }
             else
             {
 
+
                 scannerText.text = "go up";
+
             }
         }
         else
@@ -303,12 +344,16 @@ public class HeroController : MonoBehaviour
             if (x > 0)
             {
 
+
                 scannerText.text = "go left";
+
             }
             else
             {
 
+
                 scannerText.text = "go right";
+
             }
         }
 
@@ -329,6 +374,9 @@ public class HeroController : MonoBehaviour
         rifleDown.SetActive(false);
         rifleSide.SetActive(false);
         rifleUp.SetActive(false);
+        crawlDown.SetActive(false);
+        crawlSide.SetActive(false);
+        crawlUp.SetActive(false);
     }
     //Waits a certain number of seconds, then set a new gameobject animation.
     private IEnumerator WaitSeconds(float seconds, GameObject newActive)
