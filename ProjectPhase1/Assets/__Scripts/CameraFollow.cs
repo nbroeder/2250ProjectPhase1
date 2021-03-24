@@ -17,6 +17,7 @@ public class CameraFollow : MonoBehaviour   //class to make the camera follow th
     //update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z); //set the position of the camera to follow the targets x y and z coordinates
+        if (target != null)
+            transform.position = new Vector3(target.position.x, target.position.y, transform.position.z); //set the position of the camera to follow the targets x y and z coordinates
     }
 }

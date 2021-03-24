@@ -11,7 +11,7 @@ public class EnemyControl : MonoBehaviour
     public int health = 200;
 
     public GameObject hero;
-    
+
     public Vector3 pos
     {
         //The get accessor
@@ -71,13 +71,15 @@ public class EnemyControl : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Sword") || (collision.gameObject.tag=="Rifle"))
+        if ((collision.gameObject.tag == "Sword") || (collision.gameObject.tag == "Rifle"))
         {
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag == "Danger")
+        if (collision.gameObject.tag == "Player")
         {
-            health -=1;
+
+            HeroController.health--;
+            print("Health " + HeroController.health);
         }
     }
 
@@ -85,6 +87,5 @@ public class EnemyControl : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-
-        }
     }
+}

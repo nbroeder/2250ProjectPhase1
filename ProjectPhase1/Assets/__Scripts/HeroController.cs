@@ -10,6 +10,8 @@ public class HeroController : MonoBehaviour
     private Rigidbody2D _rigidbody;//Rigidbody for the hero.
     private bool _crawling;//Whether the hero is crawling or not.
 
+    public static int health = 3;
+
     public float moveSpeed = 10f;//Movement speed.
     public GameObject idleDown, idleSide, idleUp, runDown, runSide, runUp, swordDown, swordSide, swordUp,
         rifleUp, rifleDown, rifleSide, crawlDown, crawlUp, crawlSide;//Action animations
@@ -81,48 +83,54 @@ public class HeroController : MonoBehaviour
     void Update()
     {
 
-        //Calculate horizontal and vertical movement
-        Vector3 hMovement = Vector3.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
-        Vector3 vMovement = Vector3.up * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
-        //Set movement direction
-        Vector3 heading = Vector3.Normalize(hMovement + vMovement);
-
-        Vector3 m_input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        //Make crawling slower
-        if (_crawling)
-            moveSpeed = 1f;
+        if (health == 0)//Character is all out of health.
+            Destroy(gameObject);
         else
-            moveSpeed = 10f;
-        //Move hero
-        _rigidbody.MovePosition(transform.position + m_input * Time.deltaTime * moveSpeed);
+        {
+
+            //Calculate horizontal and vertical movement
+            Vector3 hMovement = Vector3.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
+            Vector3 vMovement = Vector3.up * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
+            //Set movement direction
+            Vector3 heading = Vector3.Normalize(hMovement + vMovement);
+
+            Vector3 m_input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+            //Make crawling slower
+            if (_crawling)
+                moveSpeed = 1f;
+            else
+                moveSpeed = 10f;
+            //Move hero
+            _rigidbody.MovePosition(transform.position + m_input * Time.deltaTime * moveSpeed);
 
 
-        if (_lastHeading != heading)
-        {
-            UpdateMovement(heading);//Update animation.
-        }
+            if (_lastHeading != heading)
+            {
+                UpdateMovement(heading);//Update animation.
+            }
 
-        //Trying to swing sword
-        if (Input.GetKeyDown("space"))
-        {
-            OnSwingSword();
-        }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            _crawling = !_crawling;
-        }
-        //Trying to shoot rifle
-        if (Input.GetKeyDown("q"))
-        {
-            OnShootRifle();
-        }
-        if (Input.GetKeyDown("e"))
-        {
-            useScanner();
-        }
+            //Trying to swing sword
+            if (Input.GetKeyDown("space"))
+            {
+                OnSwingSword();
+            }
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                _crawling = !_crawling;
+            }
+            //Trying to shoot rifle
+            if (Input.GetKeyDown("q"))
+            {
+                OnShootRifle();
+            }
+            if (Input.GetKeyDown("e"))
+            {
+                useScanner();
+            }
 
-        //Update last frame position.
-        _lastHeading = heading;
+            //Update last frame position.
+            _lastHeading = heading;
+        }
     }
 
     void OnSwingSword()
