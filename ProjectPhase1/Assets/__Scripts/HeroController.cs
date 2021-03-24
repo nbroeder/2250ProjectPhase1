@@ -391,7 +391,7 @@ public class HeroController : MonoBehaviour
     }
 
 
-    private void OnTriggeredEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag== "Coin")
         {
