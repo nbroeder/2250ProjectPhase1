@@ -123,7 +123,7 @@ public class HeroController : MonoBehaviour
             {
                 OnShootRifle();
             }
-            if (Input.GetKeyDown("e"))
+            if (Input.GetKeyDown("e")&&coins>=5)
             {
                 useScanner();
             }
@@ -131,6 +131,9 @@ public class HeroController : MonoBehaviour
             //Update last frame position.
             _lastHeading = heading;
         }
+
+        //update coin text
+        coinText.text = "Coins: " + coins;
     }
 
     void OnSwingSword()
@@ -386,6 +389,17 @@ public class HeroController : MonoBehaviour
         crawlSide.SetActive(false);
         crawlUp.SetActive(false);
     }
+
+
+    private void OnTriggeredEnter(Collider other)
+    {
+        if (other.gameObject.tag== "Coin")
+        {
+            other.gameObject.SetActive(false);
+            coins++;
+        }
+    }
+
     //Waits a certain number of seconds, then set a new gameobject animation.
     private IEnumerator WaitSeconds(float seconds, GameObject newActive)
     {
