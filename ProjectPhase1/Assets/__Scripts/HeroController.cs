@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class HeroController : MonoBehaviour
@@ -15,6 +16,8 @@ public class HeroController : MonoBehaviour
     public static HeroController Instance { get { return _instance; } }//Main character singleton property.
 
     public GameObject spaceStation;//the part of the station that the player is looking for
+
+    public Text txt;
 
     private void Awake()
     {
@@ -285,25 +288,25 @@ public class HeroController : MonoBehaviour
             if (y > 0)
             {
                
-                Debug.Log("go down");
+                txt.text="go down";
             }
             else
             {
-                
-                Debug.Log("go up");
+
+                txt.text = "go up";
             }
         }
         else
         {
             if (x > 0)
             {
-                
-                Debug.Log("go left");
+
+                txt.text = "go left";
             }
             else
             {
-                
-                Debug.Log("go right");
+
+                txt.text = "go right";
             }
         }
 
