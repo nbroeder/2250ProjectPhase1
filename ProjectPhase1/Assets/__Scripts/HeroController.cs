@@ -10,7 +10,7 @@ public class HeroController : MonoBehaviour
     private Rigidbody2D _rigidbody;//Rigidbody for the hero.
     private bool _crawling;//Whether the hero is crawling or not.
 
-    public static int health = 3;
+    public static int health = 3; //hero health
 
     public float moveSpeed = 10f;//Movement speed.
     public GameObject idleDown, idleSide, idleUp, runDown, runSide, runUp, swordDown, swordSide, swordUp,
