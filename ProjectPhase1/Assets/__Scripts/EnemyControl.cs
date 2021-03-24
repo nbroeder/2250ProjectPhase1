@@ -71,7 +71,7 @@ public class EnemyControl : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Sword")
+        if ((collision.gameObject.tag == "Sword") || (collision.gameObject.tag=="Rifle"))
         {
             Destroy(this.gameObject);
         }
