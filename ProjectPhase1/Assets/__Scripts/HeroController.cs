@@ -288,12 +288,12 @@ public class HeroController : MonoBehaviour
             if (y > 0)
             {
                
-                txt.text="go down";
+                txt.text="Go Down";
             }
             else
             {
 
-                txt.text = "go up";
+                txt.text = "Go Up";
             }
         }
         else
@@ -301,12 +301,12 @@ public class HeroController : MonoBehaviour
             if (x > 0)
             {
 
-                txt.text = "go left";
+                txt.text = "Go Left";
             }
             else
             {
 
-                txt.text = "go right";
+                txt.text = "Go Right";
             }
         }
 
