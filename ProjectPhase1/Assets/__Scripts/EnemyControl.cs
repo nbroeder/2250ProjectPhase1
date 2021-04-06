@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyControl : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EnemyControl : MonoBehaviour
     public bool change = false; //determines direction to go in
     public float timing; //determines when to switch directions
 
+    public Text healthText;
+    public Text xpText;
     public Vector3 pos
     {
         //The get accessor
@@ -70,12 +73,14 @@ public class EnemyControl : MonoBehaviour
         if ((collision.gameObject.tag == "Sword") || (collision.gameObject.tag == "Rifle")) //If enemy is hit by player with weapon
         {
             Destroy(this.gameObject);
+            HeroController.xp += 3;
+            xpText.text = "XP: " + HeroController.xp;
         }
         if (collision.gameObject.tag == "Player") //If enemy hits player when he is in danger
         {
 
             HeroController.health--;    //subtract health
-            print("Health " + HeroController.health);
+            healthText.text="Health: "+HeroController.health;
         }
     }
 }

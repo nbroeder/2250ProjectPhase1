@@ -21,8 +21,8 @@ public class HeroController : MonoBehaviour
     public GameObject spaceStation;//the part of the station that the player is looking for
 
     public Text scannerText;
-    public Text coinText;
-    private int coins = 0;
+    public Text xpText;
+    public static int xp = 0;
 
     private void Awake()
     {
@@ -123,7 +123,7 @@ public class HeroController : MonoBehaviour
             {
                 OnShootRifle();
             }
-            if (Input.GetKeyDown("e")&&coins>=5)
+            if (Input.GetKeyDown("e")&&xp>=5)
             {
                 useScanner();
             }
@@ -132,8 +132,8 @@ public class HeroController : MonoBehaviour
             _lastHeading = heading;
         }
 
-        //update coin text
-        coinText.text = "Coins: " + coins;
+        //update xp text
+        xpText.text = "XP: " + xp;
     }
 
     void OnSwingSword()
@@ -396,7 +396,7 @@ public class HeroController : MonoBehaviour
         if (other.gameObject.tag== "Coin")
         {
             other.gameObject.SetActive(false);
-            coins++;
+            xp++;
         }
     }
 
