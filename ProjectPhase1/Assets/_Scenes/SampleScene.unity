@@ -41480,6 +41480,7 @@ MonoBehaviour:
   spaceStation: {fileID: 1125837958}
   scannerText: {fileID: 2052237353}
   xpText: {fileID: 953235067}
+  healthText: {fileID: 743460155}
 --- !u!4 &1515691287
 Transform:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ public class HeroController : MonoBehaviour
 
     public Text scannerText;
     public Text xpText;
+    public Text healthText;
+   
     public static int xp = 0;
 
     private void Awake()
@@ -88,6 +90,13 @@ public class HeroController : MonoBehaviour
         else
         {
 
+            //To give the hero a health boost if he has enough xp
+            if (xp > 9)
+            {
+                health++;
+                healthText.text = "Health: " + health;
+                xp = xp % 10;
+            }
             //Calculate horizontal and vertical movement
             Vector3 hMovement = Vector3.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
             Vector3 vMovement = Vector3.up * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
