@@ -20,11 +20,12 @@ public class HeroController : MonoBehaviour
 
     public GameObject spaceStation;//the part of the station that the player is looking for
 
-    public Text scannerText;
+    public Text scannerText;                    //declare text variables
     public Text xpText;
     public Text healthText;
+    public Text satelliteText; 
    
-    public static int xp = 0;
+    public static int xp = 0;   //set the XP to 0
 
     private void Awake()
     {
@@ -79,6 +80,7 @@ public class HeroController : MonoBehaviour
         crawlDown.transform.SetParent(gameObject.transform, false);
         crawlUp.transform.SetParent(gameObject.transform, false);
         crawlSide.transform.SetParent(gameObject.transform, false);
+
     }
 
     // Update is called once per frame
@@ -400,14 +402,21 @@ public class HeroController : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)  //method to detect collision between objects
     {
-        if (other.gameObject.tag== "Coin")
+        if (other.gameObject.tag == "Coin")   //if the hero collects a coin
         {
-            other.gameObject.SetActive(false);
-            xp++;
+            other.gameObject.SetActive(false);   //set the coin activeness to false
+            xp++;                                   //increment the XP
+        }
+        if (other.gameObject.tag == "Satellite")   //if the hero collects the satellite
+        {
+            other.gameObject.SetActive(false);       //set the satellite activeness to false
+            satelliteText.text = "Satellite: Yes";   //set the satellite text to show that the satellite has been collected
         }
     }
+
+    
 
     //Waits a certain number of seconds, then set a new gameobject animation.
     private IEnumerator WaitSeconds(float seconds, GameObject newActive)

@@ -22712,6 +22712,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1519262039886013847, guid: 8ada29ac4d360cd47ab16311663642e0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3188069038191272557, guid: 8ada29ac4d360cd47ab16311663642e0,
         type: 3}
       propertyPath: m_RootOrder
@@ -22771,6 +22776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: satellite body
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909317105904304604, guid: 8ada29ac4d360cd47ab16311663642e0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Satellite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ada29ac4d360cd47ab16311663642e0, type: 3}
@@ -41481,6 +41491,7 @@ MonoBehaviour:
   scannerText: {fileID: 2052237353}
   xpText: {fileID: 953235067}
   healthText: {fileID: 743460155}
+  satelliteText: {fileID: 135515435}
 --- !u!4 &1515691287
 Transform:
   m_ObjectHideFlags: 0

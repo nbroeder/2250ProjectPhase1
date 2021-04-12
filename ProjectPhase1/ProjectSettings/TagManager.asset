@@ -9,6 +9,8 @@ TagManager:
   - Danger
   - SpaceStation
   - Coin
+  - Rifle
+  - Satellite
   layers:
   - Default
   - TransparentFX
