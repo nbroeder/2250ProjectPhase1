@@ -9814,6 +9814,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 458616925464301480, guid: 8bd1c019f07de6443bd2b8df6dff9388,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458616925464301480, guid: 8bd1c019f07de6443bd2b8df6dff9388,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 458616925464301478, guid: 8bd1c019f07de6443bd2b8df6dff9388, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8bd1c019f07de6443bd2b8df6dff9388, type: 3}
@@ -9832,14 +9842,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 312879551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc922e49381a9bc48b7a49e1b56609cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c61f29243dd3554fa8273cd4d00fe04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  change: 0
-  timing: 0
   healthText: {fileID: 743460155}
   xpText: {fileID: 953235067}
+--- !u!114 &312879553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312879551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf321cfc238284a13b1f091d940c7bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &315426379
 GameObject:
   m_ObjectHideFlags: 0
