@@ -20,10 +20,14 @@ public class HeroController : MonoBehaviour
 
     public GameObject spaceStation;//the part of the station that the player is looking for
 
+    [Header("Level boundaries")]
+    public float minX, maxX, minY, maxY;
+
     public Text scannerText;                    //declare text variables
     public Text xpText;
     public Text healthText;
-    public Text satelliteText; 
+    public Text satelliteText;
+    public GameObject lvlCompletePane;
    
     public static int xp = 0;   //set the XP to 0
 
@@ -132,9 +136,12 @@ public class HeroController : MonoBehaviour
             {
                 OnShootRifle();
             }
-            if (Input.GetKeyDown("e")&&xp>=5)
+            if (Input.GetKeyDown("e"))
             {
-                useScanner();
+                if (Globals.SPECIAL_TOOL == 0)
+                    useScanner();
+                else
+                    useTeleporter();
             }
 
             //Update last frame position.
@@ -345,36 +352,24 @@ public class HeroController : MonoBehaviour
         {
             //tell the player which way to go
             if (y > 0)
-            { 
                 scannerText.text="go down";
-
-            }
             else
-            {
-
-
                 scannerText.text = "go up";
-
-            }
         }
         else
         {
             if (x > 0)
-            {
-
-
                 scannerText.text = "go left";
-
-            }
             else
-            {
-
-
                 scannerText.text = "go right";
-
-            }
         }
 
+    }
+
+    //Wants to use the teleporter to teleport to a random location.
+    void useTeleporter()
+    {
+        gameObject.transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
     }
 
     //Sets all animation gameobjects to invisible.
@@ -405,10 +400,11 @@ public class HeroController : MonoBehaviour
             other.gameObject.SetActive(false);   //set the coin activeness to false
             xp++;                                   //increment the XP
         }
-        if (other.gameObject.tag == "Satellite" && !IsShooting())   //if the hero collects the satellite
+        if (other.gameObject.tag == "Satellite" && !IsShooting() && !IsSwinging())   //if the hero collects the satellite
         {
             other.gameObject.SetActive(false);       //set the satellite activeness to false
-            satelliteText.text = "Satellite: Yes";   //set the satellite text to show that the satellite has been collected
+            satelliteText.text = "Satellite: Yes";
+            lvlCompletePane.SetActive(true); 
         }
     }
 
@@ -417,7 +413,12 @@ public class HeroController : MonoBehaviour
         return rifleUp.gameObject.activeSelf || rifleDown.gameObject.activeSelf || rifleSide.gameObject.activeSelf;
     }
 
-    
+    private bool IsSwinging()
+    {
+        return swordUp.gameObject.activeSelf || swordDown.gameObject.activeSelf || swordSide.gameObject.activeSelf;
+    }
+
+
 
     //Waits a certain number of seconds, then set a new gameobject animation.
     private IEnumerator WaitSeconds(float seconds, GameObject newActive)
