@@ -87,7 +87,7 @@ public class HeroController : MonoBehaviour
     void Update()
     {
 
-        if (health == 0)//Character is all out of health.
+        if (health <= 0)//Character is all out of health.
             Destroy(gameObject);
         else
         {
