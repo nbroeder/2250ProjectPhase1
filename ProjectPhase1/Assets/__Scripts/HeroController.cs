@@ -98,7 +98,6 @@ public class HeroController : MonoBehaviour
             if (xp > 9)
             {
                 health++;
-                healthText.text = "Health: " + health;
                 xp = xp % 10;
             }
             //Calculate horizontal and vertical movement
@@ -149,8 +148,9 @@ public class HeroController : MonoBehaviour
             _lastHeading = heading;
         }
 
-        //update xp text
+        //update xp text and health text
         xpText.text = "XP: " + xp;
+        healthText.text = "Health: " + health;
     }
 
     void OnSwingSword()
