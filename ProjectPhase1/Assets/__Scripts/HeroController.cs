@@ -87,9 +87,7 @@ public class HeroController : MonoBehaviour
     void Update()
     {
 
-        if (health <= 0)//Character is all out of health.
-            Destroy(gameObject);
-        else
+        if (health > 0)//Character has health
         {
 
             //To give the hero a health boost if he has enough xp
@@ -347,9 +345,7 @@ public class HeroController : MonoBehaviour
         {
             //tell the player which way to go
             if (y > 0)
-            {
-               
-
+            { 
                 scannerText.text="go down";
 
             }
@@ -404,16 +400,21 @@ public class HeroController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)  //method to detect collision between objects
     {
-        if (other.gameObject.tag == "Coin")   //if the hero collects a coin
+        if (other.gameObject.tag == "Coin" && !IsShooting())   //if the hero collects a coin
         {
             other.gameObject.SetActive(false);   //set the coin activeness to false
             xp++;                                   //increment the XP
         }
-        if (other.gameObject.tag == "Satellite")   //if the hero collects the satellite
+        if (other.gameObject.tag == "Satellite" && !IsShooting())   //if the hero collects the satellite
         {
             other.gameObject.SetActive(false);       //set the satellite activeness to false
             satelliteText.text = "Satellite: Yes";   //set the satellite text to show that the satellite has been collected
         }
+    }
+
+    private bool IsShooting()
+    {
+        return rifleUp.gameObject.activeSelf || rifleDown.gameObject.activeSelf || rifleSide.gameObject.activeSelf;
     }
 
     
