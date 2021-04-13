@@ -126,6 +126,7 @@ public class HeroController : MonoBehaviour
             if (Input.GetKeyDown("space"))
             {
                 OnSwingSword();
+                
             }
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
@@ -406,6 +407,7 @@ public class HeroController : MonoBehaviour
             satelliteText.text = "Satellite: Yes";
             lvlCompletePane.SetActive(true); 
         }
+        
     }
 
     private bool IsShooting()
