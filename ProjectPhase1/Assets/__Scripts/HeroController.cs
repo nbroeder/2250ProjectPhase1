@@ -27,7 +27,7 @@ public class HeroController : MonoBehaviour
     public Text xpText;
     public Text healthText;
     public Text satelliteText;
-    public GameObject lvlCompletePane;
+    public GameObject lvlCompletePane, deathPane;
    
     public static int xp = 0;   //set the XP to 0
 
@@ -36,7 +36,7 @@ public class HeroController : MonoBehaviour
         //Creating singleton instance.
         if (_instance != null & _instance != this)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         } else
         {
             _instance = this;
@@ -112,40 +112,44 @@ public class HeroController : MonoBehaviour
                 moveSpeed = 1f;
             else
                 moveSpeed = 10f;
-            //Move hero
-            _rigidbody.MovePosition(transform.position + m_input * Time.deltaTime * moveSpeed);
+
+            if (!lvlCompletePane.gameObject.activeSelf && !deathPane.gameObject.activeSelf)//Prevent movement once menu appears
+            {
+                //Move hero
+                _rigidbody.MovePosition(transform.position + m_input * Time.deltaTime * moveSpeed);
 
 
-            if (_lastHeading != heading)
-            {
-                UpdateMovement(heading);//Update animation.
-            }
+                if (_lastHeading != heading)
+                {
+                    UpdateMovement(heading);//Update animation.
+                }
 
-            //Trying to swing sword
-            if (Input.GetKeyDown("space"))
-            {
-                OnSwingSword();
-                
-            }
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                _crawling = !_crawling;
-            }
-            //Trying to shoot rifle
-            if (Input.GetKeyDown("q"))
-            {
-                OnShootRifle();
-            }
-            if (Input.GetKeyDown("e"))
-            {
-                if (Globals.SPECIAL_TOOL == 0)
-                    useScanner();
-                else
-                    useTeleporter();
-            }
+                //Trying to swing sword
+                if (Input.GetKeyDown("space"))
+                {
+                    OnSwingSword();
 
-            //Update last frame position.
-            _lastHeading = heading;
+                }
+                if (Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    _crawling = !_crawling;
+                }
+                //Trying to shoot rifle
+                if (Input.GetKeyDown("q"))
+                {
+                    OnShootRifle();
+                }
+                if (Input.GetKeyDown("e"))
+                {
+                    if (Globals.SPECIAL_TOOL == 0)
+                        useScanner();
+                    else
+                        useTeleporter();
+                }
+
+                //Update last frame position.
+                _lastHeading = heading;
+            }
         }
 
         //update xp text and health text

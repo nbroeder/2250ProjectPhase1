@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class BtnNextLevel : ButtonOperations
 {
+    public GameObject planet1, planet2;
+
     public override void OnClick()
     {
-        SceneManager.LoadScene(2);
+        planet2.SetActive(true);
+        planet1.SetActive(false);
     }
 }

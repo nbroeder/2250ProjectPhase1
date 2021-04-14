@@ -8,10 +8,12 @@ public class BtnPlay : ButtonOperations
 {
 
     public Dropdown dropdown;
+    public GameObject menu, planet1;
 
     public override void OnClick()
     {
         Globals.SPECIAL_TOOL = dropdown.value;
-        SceneManager.LoadScene(1);
+        menu.SetActive(false);
+        planet1.SetActive(true);
     }
 }
