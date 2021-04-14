@@ -30,15 +30,15 @@ public class EnemyFollow : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Sword") || (collision.gameObject.tag == "Rifle")) //If enemy is hit by player with weapon
         {
-            Destroy(this.gameObject);
-            HeroController.xp += 3;
-            xpText.text = "XP: " + HeroController.xp;
+            Destroy(this.gameObject);   //destroy enemy
+            HeroController.xp += 3;     //gain xp
+            xpText.text = "XP: " + HeroController.xp;   //update text
         }
         if (collision.gameObject.tag == "Player") //If enemy hits player when he is in danger
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);   //destroy enemy
             HeroController.health-=3;    //subtract health
-            healthText.text = "Health: " + HeroController.health;
+            healthText.text = "Health: " + HeroController.health;   //update text
         }
     }
 }

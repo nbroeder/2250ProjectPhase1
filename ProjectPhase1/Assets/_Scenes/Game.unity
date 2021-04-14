@@ -54784,7 +54784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff19059359124936bcfedad6ebf156d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  moveSpeed: 10
   idleDown: {fileID: 3403106702677470092, guid: f31caf87fb90643feaaa44c125a7ba8c,
     type: 3}
   idleSide: {fileID: 7033797307663262896, guid: ab5779946d7434980b3daab7f039742b,
