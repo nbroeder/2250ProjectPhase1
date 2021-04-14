@@ -25041,6 +25041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1941975651392752499, guid: 192c659f3d6999c4493ab363365435cb,
         type: 3}
+      propertyPath: dialogueText
+      value: Hello astronaut. Your mission is to locate pieces of the broken satellite.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941975651392752499, guid: 192c659f3d6999c4493ab363365435cb,
+        type: 3}
       propertyPath: dialogueTextbox
       value: 
       objectReference: {fileID: 673434797}
@@ -31509,7 +31514,7 @@ PrefabInstance:
     - target: {fileID: 1941975651392752499, guid: 192c659f3d6999c4493ab363365435cb,
         type: 3}
       propertyPath: dialogueText
-      value: Each peice of the satellite are on different planets
+      value: Each piece of the satellite is on a different planet
       objectReference: {fileID: 0}
     - target: {fileID: 1941975651392752499, guid: 192c659f3d6999c4493ab363365435cb,
         type: 3}
@@ -48951,7 +48956,7 @@ PrefabInstance:
     - target: {fileID: 1941975651392752499, guid: 192c659f3d6999c4493ab363365435cb,
         type: 3}
       propertyPath: dialogueText
-      value: This is the last peice of the satellite
+      value: This is the last piece of the satellite
       objectReference: {fileID: 0}
     - target: {fileID: 1941975651392752499, guid: 192c659f3d6999c4493ab363365435cb,
         type: 3}

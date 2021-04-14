@@ -22,6 +22,7 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (HeroController.level<=2) // Move only if the satellite has not been found for second level (otherwise they keep coming after game is won!)
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 

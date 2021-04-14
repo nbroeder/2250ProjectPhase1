@@ -12,6 +12,8 @@ public class HeroController : MonoBehaviour
 
     public static int health = 3; //hero health
 
+    public static int level = 1; //keeps track of level
+
     public float moveSpeed = 10f;//Movement speed.
     public GameObject idleDown, idleSide, idleUp, runDown, runSide, runUp, swordDown, swordSide, swordUp,
         rifleUp, rifleDown, rifleSide, crawlDown, crawlUp, crawlSide;//Action animations
@@ -155,6 +157,7 @@ public class HeroController : MonoBehaviour
         //update xp text and health text
         xpText.text = "XP: " + xp;
         healthText.text = "Health: " + health;
+
     }
 
     void OnSwingSword()
@@ -409,7 +412,8 @@ public class HeroController : MonoBehaviour
         {
             other.gameObject.SetActive(false);       //set the satellite activeness to false
             satelliteText.text = "Satellite: Yes";
-            lvlCompletePane.SetActive(true); 
+            lvlCompletePane.SetActive(true);
+            level++;
         }
         
     }
