@@ -54784,7 +54784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff19059359124936bcfedad6ebf156d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 100
   idleDown: {fileID: 3403106702677470092, guid: f31caf87fb90643feaaa44c125a7ba8c,
     type: 3}
   idleSide: {fileID: 7033797307663262896, guid: ab5779946d7434980b3daab7f039742b,
@@ -79468,6 +79468,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 689166134}
     m_Modifications:
+    - target: {fileID: 1519262039886013847, guid: 8ada29ac4d360cd47ab16311663642e0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.69468284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519262039886013847, guid: 8ada29ac4d360cd47ab16311663642e0,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.0079021
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519262039886013847, guid: 8ada29ac4d360cd47ab16311663642e0,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0092829615
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519262039886013847, guid: 8ada29ac4d360cd47ab16311663642e0,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5125849
+      objectReference: {fileID: 0}
     - target: {fileID: 1519262039886013847, guid: 8ada29ac4d360cd47ab16311663642e0,
         type: 3}
       propertyPath: m_IsTrigger

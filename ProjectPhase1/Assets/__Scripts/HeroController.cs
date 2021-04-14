@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+//The main controller for the Hero character.
 public class HeroController : MonoBehaviour
 {
     private static HeroController _instance;//Main character singleton
@@ -38,7 +39,7 @@ public class HeroController : MonoBehaviour
         //Creating singleton instance.
         if (_instance != null & _instance != this)
         {
-            //Destroy(this.gameObject);
+       
         } else
         {
             _instance = this;
@@ -417,12 +418,12 @@ public class HeroController : MonoBehaviour
         }
         
     }
-
+    //Tests whether the player is shooting the rifle
     private bool IsShooting()
     {
         return rifleUp.gameObject.activeSelf || rifleDown.gameObject.activeSelf || rifleSide.gameObject.activeSelf;
     }
-
+    //Tests whether the player is swinging the sword
     private bool IsSwinging()
     {
         return swordUp.gameObject.activeSelf || swordDown.gameObject.activeSelf || swordSide.gameObject.activeSelf;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//NPC script
 public class NPCFriend : MonoBehaviour
 {
     //textbox
@@ -10,9 +10,6 @@ public class NPCFriend : MonoBehaviour
 
     //the string that the friend will say
     public string dialogueText;
-
-    
-
 
     void Update()
     {

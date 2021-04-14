@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Parent class for all button operations.
 public class ButtonOperations : MonoBehaviour
 {
     // Update is called once per frame
@@ -13,6 +13,6 @@ public class ButtonOperations : MonoBehaviour
 
     public virtual void OnClick()
     {
-
+        //Empty for children.
     }
 }

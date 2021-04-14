@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BoundsCheck : MonoBehaviour //class to keep hero within the world map
 {
-
-    public float maxX, minX, maxY, minY;
+    [Header("Scene bounds")]
+    public float maxX, minX, maxY, minY;//Holds the bounds for the scene.
 
     // Update is called once per frame
     void Update()
